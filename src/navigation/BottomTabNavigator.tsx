@@ -15,20 +15,20 @@ export default function BottomTabNavigator() {
     const colorScheme = useColorScheme();
     return (
         <BottomTab.Navigator
-            initialRouteName="Calendar"
+            initialRouteName="TabOne"
             tabBarPosition={"bottom"}
 
             tabBarOptions={{activeTintColor: Colors[colorScheme].tint, inactiveTintColor: Colors[colorScheme].tabIconDefault}}
             >
             <BottomTab.Screen
-                name="Calendar"
+                name="TabOne"
                 component={TabOneNavigator}
                 options={{
                     tabBarIcon: ({color}) => <TabBarIcon name="ios-code" color={color}/>,
                 }}
             />
             <BottomTab.Screen
-                name="Settings"
+                name="TabTwo"
                 component={TabTwoNavigator}
                 options={{
                     tabBarIcon: ({color}) => <TabBarIcon name="ios-code" color={color}/>,

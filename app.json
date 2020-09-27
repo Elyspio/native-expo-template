@@ -29,7 +29,8 @@
 			"permissions": []
 		},
 		"androidNavigationBar": {
-			"visible": "leanback"
+			"visible": "immersive",
+			"barStyle": "dark-content"
 		},
 		"platforms": [
 			"android"
