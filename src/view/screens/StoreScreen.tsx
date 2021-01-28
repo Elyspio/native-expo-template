@@ -2,46 +2,29 @@ import * as React from 'react';
 import {StyleSheet} from 'react-native';
 
 import {Text, View} from '../components/common/Themed';
-import {StoreState} from "../../store";
 import {connect, ConnectedProps} from "react-redux";
+import {StoreState} from "../../store";
 import {Dispatch} from "redux";
-import {add} from "../../store/example";
 
-export function TabOneScreen(props: ReduxTypes) {
-
-    React.useEffect(() =>{
-
-        setInterval(() => {
-            props.add(Math.floor(Math.random() * 100))
-        }, 100)
-
-    }, [])
-
-
+export function StoreScreen(props: ReduxTypes) {
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Tab One</Text>
+            <Text style={styles.title}>Store</Text>
             <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)"/>
-            <Text>{props.val}</Text>
+            <Text>{JSON.stringify(props.store)}</Text>
         </View>
     );
 }
 
 
-const mapStateToProps = (state: StoreState) => ({
-    val: state.example.value
-})
+const mapStateToProps = (state: StoreState) => ({store: state})
 
-const mapDispatchToProps = (dispatch: Dispatch) => ({
-    add: (x:number) =>  dispatch(add(x))
-})
+const mapDispatchToProps = (dispatch: Dispatch) => ({})
 
 const connector = connect(mapStateToProps, mapDispatchToProps);
 type ReduxTypes = ConnectedProps<typeof connector>;
 
-
-export default connector(TabOneScreen)
-
+export default connector(StoreScreen)
 const styles = StyleSheet.create({
     container: {
         flex: 1,
